@@ -25,22 +25,6 @@ parser, metadata = get_parser_with_args()
 opt = parser.parse_args()
 
 """
-Initialize experiments log
-"""
-
-logger = logging.getLogger(__name__)
-logger.setLevel(level=logging.INFO)
-handler = logging.FileHandler("tmp/log.txt")
-handler.setLevel(logging.INFO)
-
-console = logging.StreamHandler()
-console.setLevel(logging.INFO)
-
-logger.addHandler(handler)
-logger.addHandler(console)
-writer = SummaryWriter(opt.log_dir + f'/{datetime.datetime.now().strftime("%Y%m%d-%H%M%S")}/')
-
-"""
 Set up environment: define paths, download data, and set device
 """
 # os.environ["CUDA_VISIBLE_DEVICES"] = "0"
